@@ -1,54 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <title>Document</title>
-</head>
-<body>
-  <div class="container">
-    <h1>Docs of nodejs server of games</h1>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th>Route</th>
-          <th>Info</th>
-          <th>params/body</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            Get
-          </td>
-          <td>
-            <a href="/games">/games</a>
-          </td>
-          <td>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint natus pariatur at error voluptates ipsam nesciunt impedit molestiae vitae aut!
-          </td>
-          <td>
-            ?s, ?page, ?limit , ?sort
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Get
-          </td>
-          <td>
-            /games/count
-          </td>
-          <td>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint natus pariatur at error voluptates ipsam nesciunt impedit molestiae vitae aut!
-          </td>
-          <td>
-            ?limit
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Toys - API Documentation</h1>
+      <br><br>
+      <h2>Toys API</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>HTTP Method</th>
+            <th>Route</th>
+            <th>Description</th>
+            <th>Parameters/Request Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Get</td>
+            <td>/toys</td>
+            <td>Returns a list of toys according to the query parameters</td>
+            <td>
+              <ul>
+                <li>
+                  page (optional): page number to return (default: 1)<br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys?page=1"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys?page=1</a
+                  >
+                </li>
+                <li>
+                  limit (optional): number of toys per page (default: 5,
+                  maximum: 10) <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys?limit=3"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys?limit=3</a
+                  >
+                </li>
+                <li>
+                  sort (optional): field to sort by (default: price) <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys?sort=price"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys?sort=price</a
+                  >
+                </li>
+                <li>
+                  reverse (optional): if set to yes, sorts in descending order
+                  <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys?sort=price&reverse=yes"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys?sort=price&reverse=yes</a
+                  >
+                </li>
+                <li>
+                  s (optional): the search query to match against toy names,
+                  infos or categories <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys?s=pop-it"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys?s=pop-it</a
+                  >
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Get</td>
+            <td>/games/prices</td>
+            <td>Returns a list of toys filtered by price range</td>
+            <td>
+              <ul>
+                <li>
+                  page (optional): page number to return (default: 1) <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys/prices?page=1"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys/prices?page=1</a
+                  >
+                </li>
+                <li>
+                  limit (optional): number of toys per page (default: 5,
+                  maximum: 10) <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys/prices?limit=3"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys/prices?limit=5</a
+                  >
+                </li>
+                <li>min (optional): minimum price to filter by (default: 0)</li>
+                <li>
+                  max (optional): maximum price to filter by (default: Infinity)
+                  <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys/prices?min=50&max=400"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys/prices?min=50&max=400</a
+                  >
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/toys/single/:id</td>
+            <td>Returns a single toy by its ID</td>
+            <td>
+              <ul>
+                <li>
+                  id: the ID of the toy to retrieve <br />
+                  <a
+                    href="https://jittery-seal-leg-warmers.cyclic.app/toys/single/64f0420d5b5c900cea9c4643"
+                    >https://jittery-seal-leg-warmers.cyclic.app/toys/single/64f0420d5b5c900cea9c4643</a
+                  >
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/toys</td>
+            <td>
+              Adds a new toy, <br />
+              Token is required
+            </td>
+            <td>
+              <ul>
+                <li>
+                  Request Body: Toy data to be added in the following format:
+                  <br />
+                  {<br />
+                  name: String, // 2-100 characters<br />
+                  info: String, // 2-400 characters<br />
+                  category: String, // 2-400 characters<br />
+                  ing_url: String, // 2-400 characters, allowed but not
+                  required<br />
+                  price: Number // 1-99999<br />
+                  }
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>PUT</td>
+            <td>/toys/:id</td>
+            <td>
+              Updates an existing toy, <br />
+              Token is required
+            </td>
+            <td>
+              <ul>
+                <li>id: the ID of the toy to update</li>
+                <li>
+                  Request Body: Toy data to be added in the following format:
+                  <br />
+                  {<br />
+                  name: String, // 2-100 characters<br />
+                  info: String, // 2-400 characters<br />
+                  category: String, // 2-400 characters<br />
+                  ing_url: String, // 2-400 characters, allowed but not
+                  required<br />
+                  price: Number // 1-99999<br />
+                  }
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/toys/:id</td>
+            <td>
+              Deletes a toy by its ID, <br />
+              Token is required
+            </td>
+            <td>
+              <ul>
+                <li>id: the ID of the toy to delete</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br /><br /><br />
+      <h2>Users API</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>HTTP Method</th>
+            <th>Route</th>
+            <th>Description</th>
+            <th>Request Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/users</td>
+            <td>Test endpoint to check if the server is running</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/users/myInfo</td>
+            <td>
+              Get the information for the authenticated user,<br />
+              Token is required
+            </td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/users</td>
+            <td>Create a new user</td>
+            <td>
+              { <br />name: String, // 2-150 characters<br />email: String, //
+              2-150 characters<br />password: String // 3-16 characters<br />
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/users/login</td>
+            <td>Authenticate a user and receive a JWT token in response</td>
+            <td>
+              { <br />email: String, //
+              2-150 characters<br />password: String // 3-16 characters<br />
+              }
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-center">Copyright © 2023 <span class="fw-bold">Gal List</span></p>
+      <p class="text-center">Fullstack Developer | MongoDB | Node.js</p>
+    </div>
+  </body>
 </html>
